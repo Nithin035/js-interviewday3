@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            color: red;
+        }
+        pre{
+            color: green;
+        }
+        li{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <p>1.Explain Local Scope, Block Scope, Functional Scope and Scope Chain in javascript</p>
+    <li>local scope/functional scope: variables which are assigned inside the function is known as local/functional scope</li>
+    <li>global scope:variables which are assigned /declared at the top of the programe or outside</li>
+    <li>block scope: variales which are assigned using let and const are accesed within the block {}</li>
+    <li>scope chain:js engine also uses scope to find variables</li>
+    <pre>
+        //1 local scope
+function add(){
+    var a=20;
+    console.log(a)
+}
+add()
+    </pre>
+    <pre>
+        var glo=30;
+function glob(){
+    console.log(glo)
+}
+glob()
+    </pre>
+    <pre>
+        //block
+{
+    let abc=100;
+    console.log(abc)
+}
+    </pre>
+    <pre>
+        //scope chain
+        var x=24;
+function OuterFunction()
+{
+console.log(x)
+}
+OuterFunction();
+    </pre>
+    <p>2.What is the use of setTimeout</p>
+    <li>settimeout is used to excute the code after the specified duration</li>
+    <pre>
+        setTimeout(()=>{
+            console.log("nithin")
+        },6000)
+    </pre>
+    <p>3.How many operators do we have in JS ?</p>
+    <li>js has 4types of operators</li>
+    <li>1.arthimetic operator</li>
+    <li>2.comparsion operator</li>
+    <li>3.assignment operator</li>
+    <li>4.logical operator</li>
+    <p>4.What are objects in javascript?</p>
+    <li>in js objects are non primitaive data type structures which stores elements in key pair value</li>
+    <pre>
+        let obj={
+            name:"pavan",
+            age:23
+        }
+        console.log(obj)
+    </pre>
+    <p>5.What are function constructors?</p>
+    <li>in js function constructor is a way of creating a new object type,using function as a blueprint for the object properties  and methods</li>
+    <pre>
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            
+            this.sayHello = function() {
+              console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+            };
+          }
+          const person1 = new Person('John', 30);
+          const person2 = new Person('Jane', 25);
+        
+          person1.sayHello(); 
+          person2.sayHello();
+    </pre>
+    <p>6.Explain prototypes</p>
+    <li>every object in js has a built in property which is called its prototype</li>
+    <li>prototype is itself an object an object have prototype object present in it</li>
+    <pre>
+        function person1(){
+            this.name='john',
+            this.age=23
+        }
+        const person12=new person1()
+        console.log(person12)
+    </pre>
+    <p>7.What is prototype chain</p>
+    <li>Prototype chaining is used to build new types of objects based on existing ones. It is similar to
+        inheritance in a class based language.
+        The prototype on object instance is available through Object.getPrototypeOf(object) or proto
+        property whereas prototype on constructors function is available through Object.prototype.</li>
+        <pre>
+            let fruits=["apple","banana"]
+            console.log(Array.prototype)
+        </pre>
+    <p>8.Give an example of inheritance using function constructor</p>
+    <pre>
+        function child(name, age){
+            this.name = name;
+            this.age = age;
+        };
+        function description(name, age, id, cls,gender){
+            child.call(this, name, age, id, cls,gender);
+            this.id = id;
+            this.cls=cls;
+            this.gender = gender;
+        };
+        let student1 = new child('Nithin', 135);
+        let student2 = new description('pavn', 118, 143, 'Btech');
+        console.log(student1);
+        console.log(student2);
+    </pre>
+    <p>9.Difference between undefined vs not defined vs NaN</p>
+    <li>Undefined is a datatype in JS which means a variable is declared but its value is not specified. It is also the default value of a variable declared using 'var' upon hoisting.</li>
+    <li>Not defined is shown on the console when a variable is used for something but it was never declared.</li>
+    <li>NAN stands for 'not a number' which is the value given to a number if it contains alphabets or any special character.</li>
+    <p>10.Please explain Self Invoking Function and its code</p>
+    <li>a self invoking function also known as an immediately invoked function is a js function that runs as soon as it is defined ,the function is wrapped in parenthess and is invoked immediately after it is defined</li>
+    <pre>
+        (function ()
+        {
+        var message = "IIFE";
+        console.log(message);
+        //IIFE
+        }
+        )();
+
+    </pre>
+    <script src="./main.js"></script>
+</body>
+</html>
